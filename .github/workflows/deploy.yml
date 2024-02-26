@@ -1,4 +1,4 @@
-name: Node.js CI
+name: deploy final
 
 on:
   push:
@@ -9,10 +9,7 @@ on:
 jobs:    
   deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
-        
+    
     steps:
     - name: checkout submodules
       uses: actions/checkout@v4
