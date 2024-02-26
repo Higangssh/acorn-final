@@ -1,0 +1,6 @@
+[submodule "acorn-final-fe"]
+	path = acorn-final-fe
+	url = https://github.com/cloudchamb3r/acorn-final-fe
+[submodule "acorn-final-be"]
+	path = acorn-final-be
+	url = https://github.com/cloudchamb3r/acorn-final-be

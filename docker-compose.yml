@@ -1,0 +1,14 @@
+services:
+  proxy:
+    image: nginx
+    ports:
+      - 80:80
+    environment:
+      - NGINX_HOST=${HOST_NAME}
+      - NGINX_PORT=${HOST_PORT}
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend
+  backend:
+    build: backend
