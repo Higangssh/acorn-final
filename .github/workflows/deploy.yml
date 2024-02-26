@@ -52,8 +52,7 @@ jobs:
         chmod +x ./gradlew
         ./gradlew clean bootJar
         sudo killall -9 java || true
-        nohup java -jar ./build/libs/*.jar &
-        sleep 5
+        RUNNER_TRACKING_ID="" && nohup java -jar ./build/libs/*.jar &
       working-directory: ./acorn-final-be
         
     
