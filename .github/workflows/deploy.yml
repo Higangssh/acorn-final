@@ -47,6 +47,7 @@ jobs:
 
     - name: build backend 
       run: |
+        chmod +x ./gradlew
         ./gradlew clean bootJar
       working-directory: ./acorn-final-be
         
