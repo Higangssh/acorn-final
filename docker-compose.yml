@@ -1,5 +1,5 @@
 services:
-  proxy:
+  nginx:
     image: nginx
     ports:
       - 80:80
@@ -7,7 +7,7 @@ services:
       - NGINX_HOST=${HOST_NAME}
       - NGINX_PORT=${HOST_PORT}
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./dotori.conf:/etc/nginx/sites-enabled/dotori.conf
     depends_on:
       - backend
   backend:
