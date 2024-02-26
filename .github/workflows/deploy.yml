@@ -21,8 +21,8 @@ jobs:
       run: |
         pwd
         ls -al
-        cp -r ./acorn-final.conf/fe/* ./acorn-final-fe/
-        cp -r ./acorn-final.conf/be/* ./acorn-final-be/src/main/resources/
+        cp -r ./acorn-final.conf/fe/. ./acorn-final-fe/
+        cp -r ./acorn-final.conf/be/. ./acorn-final-be/src/main/resources/
 
     - name: setup node
       uses: actions/setup-node@v4
