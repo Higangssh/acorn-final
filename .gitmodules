@@ -4,3 +4,6 @@
 [submodule "acorn-final-be"]
 	path = acorn-final-be
 	url = https://github.com/cloudchamb3r/acorn-final-be
+[submodule "acorn-final.conf"]
+	path = acorn-final.conf
+	url = https://github.com/cloudchamb3r/acorn-final.conf
