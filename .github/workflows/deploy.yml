@@ -19,6 +19,8 @@ jobs:
         
     - name: copy configs
       run: |
+        pwd
+        ls -al
         cp -r ./acorn-final.conf/fe/* ./acorn-final-fe/
         cp -r ./acorn-final.conf/be/* ./acorn-final-be/src/main/resources/
 
