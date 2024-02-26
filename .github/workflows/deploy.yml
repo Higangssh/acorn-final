@@ -44,7 +44,7 @@ jobs:
         npm install
         npm run build
         mkdir -p /home/ubuntu/www/dotori.site/
-        mv ./dist/* /home/ubuntu/www/dotori.site/
+        cp -r ./dist/. /home/ubuntu/www/dotori.site/
       working-directory: ./acorn-final-fe
 
     - name: build and deploy backend 
