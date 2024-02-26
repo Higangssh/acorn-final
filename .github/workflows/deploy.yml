@@ -39,16 +39,20 @@ jobs:
         cache: 'gradle'
         cache-dependency-path: ./acorn-final-be
         
-    - name: build frontend
+    - name: build and deploy frontend
       run: |
         npm install
         npm run build
+        mkdir -p /home/ubuntu/www/dotori.site/
+        mv ./dist/* /home/ubuntu/www/dotori.site/
       working-directory: ./acorn-final-fe
 
-    - name: build backend 
+    - name: build and deploy backend 
       run: |
         chmod +x ./gradlew
         ./gradlew clean bootJar
+        sudo killall -9 java || true
+        nohup java -jar ./build/libs/*.jar
       working-directory: ./acorn-final-be
         
     
