@@ -8,7 +8,7 @@ on:
 
 jobs:    
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: acorn-final
     
     steps:
     - name: checkout submodules
