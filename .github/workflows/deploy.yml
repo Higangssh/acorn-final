@@ -1,0 +1,53 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:    
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+        
+    steps:
+    - name: checkout submodules
+      uses: actions/checkout@v4
+      with:
+        token: ${{secrets.GH_ACTION_TOKEN}}
+        submodules: true
+        
+    - name: copy configs
+      run: |
+        cp -r ./acorn-final.conf/fe/* ./acorn-final-fe/
+        cp -r ./acorn-final.conf/be/* ./acorn-final-be/src/main/resources/
+
+    - name: setup node
+      uses: action/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+        
+    - name: setup java
+      uses: action/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: 17
+        cache: 'gradle'
+        
+    - name: build frontend
+      run: |
+        npm install
+        npm run build
+      working-directory: ./acorn-final-fe
+
+    - name: build backend 
+      run: |
+        ./gradlew clean bootJar
+      working-directory: ./acorn-final-be
+        
+    
+    
