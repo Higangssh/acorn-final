@@ -29,7 +29,7 @@ jobs:
       with:
         node-version: 20
         cache: 'npm'
-        working-directory: ./acorn-final-fe
+        cache-dependency-path: ./acorn-final-fe
         
     - name: setup java
       uses: actions/setup-java@v4
@@ -37,7 +37,7 @@ jobs:
         distribution: 'temurin'
         java-version: 17
         cache: 'gradle'
-        working-directory: ./acorn-final-be
+        cache-dependency-path: ./acorn-final-be
         
     - name: build frontend
       run: |
