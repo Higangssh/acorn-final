@@ -53,6 +53,7 @@ jobs:
         ./gradlew clean bootJar
         sudo killall -9 java || true
         nohup java -jar ./build/libs/*.jar &
+        sleep 5
       working-directory: ./acorn-final-be
         
     
