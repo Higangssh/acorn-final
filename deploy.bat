@@ -1,4 +1,5 @@
 git pull origin main 
+git submodule update --init
 git submodule update --remote
 git submodule foreach git pull origin main 
 git add .
