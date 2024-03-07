@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  blue:
+    build:
+      context: ./acorn-final-be/build/docker
+      dockerfile: Dockerfile
+    expose:
+      - 9000
+    networks:
+      - dotori_network
+    depends_on:
+      - nginx
+  networks:
+    dotori_network:
+      external: true
