@@ -38,35 +38,35 @@ jobs:
         cache: 'gradle'
         cache-dependency-path: ./acorn-final-be
         
-    # - name: build and deploy frontend
-    #   run: |
-    #     npm install
-    #     npm run build
-    #     mkdir -p /home/ubuntu/www/dotori.site/
-    #     cp -r ./dist/. /home/ubuntu/www/dotori.site/
-    #   working-directory: ./acorn-final-fe
-
-    # - name: build and deploy backend 
-    #   run: |
-    #     chmod +x ./gradlew
-    #     ./gradlew clean bootJar
-    #     sudo killall -9 java || true
-    #     RUNNER_TRACKING_ID="" && nohup java -jar ./build/libs/*.jar &
-    #   working-directory: ./acorn-final-be
-    - name: build frontend 
+    - name: build and deploy frontend
       run: |
         npm install
         npm run build
+        mkdir -p /home/ubuntu/www/dotori.site/
+        cp -r ./dist/. /home/ubuntu/www/dotori.site/
       working-directory: ./acorn-final-fe
-        
-    - name: build backend
+
+    - name: build and deploy backend 
       run: |
         chmod +x ./gradlew
-        ./gradlew clean dockerCreateDockerfile
+        ./gradlew clean bootJar
+        sudo killall -9 java || true
+        RUNNER_TRACKING_ID="" && nohup java -jar ./build/libs/*.jar &
       working-directory: ./acorn-final-be
+    # - name: build frontend 
+    #   run: |
+    #     npm install
+    #     npm run build
+    #   working-directory: ./acorn-final-fe
+        
+    # - name: build backend
+    #   run: |
+    #     chmod +x ./gradlew
+    #     ./gradlew clean dockerCreateDockerfile
+    #   working-directory: ./acorn-final-be
    
-  deploy:
-    runs-on: acorn-final
-    needs: [build]
+  # deploy:
+  #   runs-on: acorn-final
+  #   needs: [build]
 
    
