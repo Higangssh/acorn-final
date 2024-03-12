@@ -40,6 +40,7 @@ jobs:
         
     - name: build and deploy frontend
       run: |
+        export NODE_OPTIONS="--max_old_space_size=4096"
         npm install
         npm run build
         mkdir -p /home/ubuntu/www/dotori.site/
