@@ -8,7 +8,7 @@ on:
 
 jobs:    
   build:
-    runs-on: acorn-final  
+    runs-on: dotori
     steps:
     - name: checkout submodules
       uses: actions/checkout@v4
